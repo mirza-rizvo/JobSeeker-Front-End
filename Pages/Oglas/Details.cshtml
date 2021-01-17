@@ -1,0 +1,43 @@
+﻿@page
+@model JobSeeker.Pages.Oglas.DetailsModel
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+}
+<div class="bg-light justify-content-center col-md-8 container mt-5" style="margin-bottom:10%;">
+    <h4 class="p-3">@*@*@model.NazivOglasa</h4>
+    <hr />
+    <div class="p-4">
+        <h5>Opis oglasa</h5>
+        <p>@*@*@model.OpisOglasa</p>
+        <h5>Lokacija</h5>
+        <p>@*@*@model.Lokacija</p>
+        <h5>Broj Izvršilaca</h5>
+        <p>@*@*@model.BrojIzvršilaca</p>
+        <h5>Tip oglasa</h5>
+        <p>@*@*@model.TipOglasa</p>
+        <h5>Trajanje oglasa</h5>
+        <p>@*@*@model.TrajanjeOglasa</p>
+        <h5>Broj prijavljenih</h5>
+        <p>@*@*@model.BrojPrijavljenih</p>
+        <div class="row">
+            <div class="col-md-7 form-group float-left mb-0 pt-3">
+                <p><b>Datum objave oglasa: </b>  @*@*@model.DatumObjaveOglasa</p>
+            </div>
+            <div class=" col-md-5 form-group">
+                @*@if (SignInManager.UserManager.GetUserId == Model.UserID)
+                    {*@
+                <a class="btn btn-warning m-1" asp-area="" asp-controller="Oglas" asp-action="Edit" asp-route-ID="@*@*@model.ID">Izmijeni oglas</a>
+                <a class="btn btn-danger m-1" asp-area="" asp-controller="Oglas" asp-action="Delete" asp-route-ID="@*@*@model.ID">Obriši oglas</a>
+
+                @*}
+                    else
+                    {*@
+                <a class="btn btn-success m-1" asp-area="" asp-controller="Oglas" asp-action="Apply" asp-route-ID="@*@*@model.ID">Prijavi se</a>
+                @*}*@
+                <a href="##" class="btn btn-primary m-1" onClick="history.go(-1); return false;"> Nazad</a>
+            </div>
+        </div>
+
+    </div>
+</div>

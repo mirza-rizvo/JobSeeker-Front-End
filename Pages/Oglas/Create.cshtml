@@ -1,0 +1,68 @@
+﻿@page
+@model JobSeeker.Pages.Oglas.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="bg-light justify-content-center col-md-10 container mt-5">
+    <div class="p-3">
+        <h2>Kreiraj novi oglas</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-12 pl-5 pr-5">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row justify-content-around">
+                        <div class="form-group col-md-6 p-1 justify-content-around">
+                            <label asp-for="OglasModel.NazivOglasa" class="control-label">Naziv oglasa</label>
+                            <input asp-for="OglasModel.NazivOglasa" class="form-control col-md-12" placeholder="Naziv oglasa" />
+                            <span asp-validation-for="OglasModel.NazivOglasa" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-3 p-1 justify-content-around">
+                            <label asp-for="OglasModel.TrajanjeOglasa" class="control-label">Trajanje oglasa</label>
+                            <input asp-for="OglasModel.TrajanjeOglasa" class="form-control col-md-12 " placeholder="Trajanje oglasa" />
+                            <span asp-validation-for="OglasModel.TrajanjeOglasa" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-3 p-1 justify-content-around">
+                            <label asp-for="OglasModel.BrojIzvršilaca" class="control-label">Broj izvršilaca</label>
+                            <input asp-for="OglasModel.BrojIzvršilaca" class="form-control col-md-12 " placeholder="Broj izvršilaca" />
+                            <span asp-validation-for="OglasModel.BrojIzvršilaca" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6 p-1">
+                            <label asp-for="OglasModel.Lokacija" class="control-label">Lokacija</label>
+                            <select asp-for="OglasModel.Lokacija" class="form-control col-md-12">
+                                <option value="0" disabled selected>-- Odaberite lokaciju --</option>
+                            </select>
+                            <span asp-validation-for="OglasModel.Lokacija" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6 p-1">
+                            <label asp-for="OglasModel.TipOglasa" class="control-label">Tip oglasa</label>
+                            <select asp-for="OglasModel.TipOglasa" class="form-control col-md-12">
+                                <option value="0" disabled selected>-- Odaberite tip oglasa --</option>
+                            </select>
+                            <span asp-validation-for="OglasModel.TipOglasa" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12 p-1">
+                            <label asp-for="OglasModel.OpisOglasa" class="control-label">Opis oglasa</label>
+                            <textarea asp-for="OglasModel.OpisOglasa" class="form-control col-md-12" rows="5" placeholder="Opis oglasa"></textarea>
+                            <span asp-validation-for="OglasModel.OpisOglasa" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group offset-10">
+                        <input type="submit" value="Objavi" class="btn btn-success m-1" />
+                        <a href="##" class="btn btn-danger m-1" onClick="history.go(-1); return false;"> Nazad</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

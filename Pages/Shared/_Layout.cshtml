@@ -1,0 +1,61 @@
+﻿@inject SignInManager<IdentityUser> SignInManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JobSeeker</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="min-vh-100 gray">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-1">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">JobSeeker</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end justify-content-end">
+                    <ul class="nav navbar-nav flex-row justify-content-md-start justify-content-start flex-nowrap">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Početna stranica</a>
+                        </li>
+                        @*@if (User.Role == "Poslodavac")*@
+                        @*  *@{
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-action="Create" asp-controller="Oglas">Dodaj novi oglas</a>
+                            </li>
+
+                       @* }*@
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-action="Index" asp-controller="Oglas">Moji oglasi oglasi</a>
+                        </li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid h-100 p-0">
+        <main role="main" class="col-md-12 p-0">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted bg-dark">
+        <div class="container">
+            <p class="text-light">&copy; 2021 - JobSeeker</p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

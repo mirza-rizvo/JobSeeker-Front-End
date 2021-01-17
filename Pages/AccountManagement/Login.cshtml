@@ -1,0 +1,36 @@
+﻿@page
+@{
+}
+
+<div class="container login-container col-md-6">
+    <div class="row">
+        <div class="col-md-12 login-form">
+            <section>
+                <form id="account" method="post">
+                    <h4>Prijavite se na vaš račun</h4>
+                    <hr />
+                    <div class="form-group ml-5 mr-5">
+                        <input type="text" class="form-control" placeholder="Vaš email" value="" />
+                    </div>
+                    <div class="form-group ml-5 mr-5">
+                        <input type="password" class="form-control" placeholder="Vaša lozinka" value="" />
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" class="btnSubmit" value="Login" />
+                    </div>
+                    <div class="form-group ml-5 mr-5">
+                        <p>
+                            <a class="links" asp-action="Register" asp-controller="AccountManagement">Napravi novi račun.</a>
+                        </p>
+                        <p>
+                            <a class="links">Pošaljite ponovo potvrdu prijave.</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
